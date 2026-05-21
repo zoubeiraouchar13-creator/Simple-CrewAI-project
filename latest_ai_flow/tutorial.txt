@@ -1,0 +1,66 @@
+Create the workflow :
+    crewai create flow latest-ai-flow
+    cd latest_ai_flow (you must be in the project root to run crewai)
+
+Create a .venv
+pip install crewai, crewai_tools
+
+Allow ExecutionPolicy :
+    - In powershell run : powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Create the workspace : crewai install
+
+Create :
+    -config/agents.yaml
+        (role, goal, backstory)
+    -config/tasks.yaml
+        (description, expected_output, agent, output_file)
+
+Create Scripts :
+    -src/project/crews/content_crew.py
+        @crewbase (agent, task, crew)
+    -src/project/main.py
+        (Basemodel, start, listenn kickoff)
+
+Create the .env :
+    SERPER (https://serper.dev), model used, API_BASE(localhost)
+
+If you have some troubleshoting with prerelease version, then add this to pyproject.toml:
+    [tool.uv]
+    prerelease = "allow"
+
+#For local testing, you can use Ollama to run the model locally. 
+# Make sure to set up your .env file with the appropriate values for MODEL and API_BASE.
+#And add this to content_crew.py
+llm = LLM(
+    model="ollama/qwen2.5:14b",
+    base_url="http://localhost:11434"
+)
+(...)
+@crew
+def crew(self) -> Crew:
+    return Crew(
+        agents=self.agents,
+        tasks=self.tasks,
+        process=Process.sequential,
+        memory=False,   # ← add this
+        verbose=True
+    ) 
+(...)
+@crew
+def crew(self) -> Crew:
+    return Crew(
+        agents=self.agents,
+        tasks=self.tasks,
+        process=Process.sequential,
+        memory=True,
+        embedder={
+            "provider": "ollama",
+            "config": {"model_name": "mxbai-embed-large"} ← add this
+        },
+        verbose=True
+    )   
+
+Launch the crew : crewai run
+
+The result will be created in project/output/report.md
