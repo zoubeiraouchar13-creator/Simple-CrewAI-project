@@ -16,27 +16,6 @@ class ResearchCrew:
 
     @agent
     def researcher(self) -> Agent:
-        return Agent(
-            config=self.agents_config["researcher"],
-            llm=llm,
-            verbose=True
-        )
-
-    @task
-    def research_task(self) -> Task:
-        return Task(config=self.tasks_config["research_task"])
-
-    @crew
-    def crew(self) -> Crew:
-        return Crew(agents=self.agents, tasks=self.tasks, process=Process.sequential, verbose=True)
-
-@CrewBase
-class ResearchCrew:
-    agents_config = "config/agents.yaml"
-    tasks_config = "config/tasks.yaml"
-
-    @agent
-    def researcher(self) -> Agent:
         return Agent(config=self.agents_config["researcher"], tools=[SerperDevTool()], verbose=True)
 
     @task
