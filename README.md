@@ -1,6 +1,22 @@
 # CrewAI Tutorial
 
 Welcome to the Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![CrewAI](https://img.shields.io/badge/CrewAI-1.14.5-purple)
+![LangChain](https://img.shields.io/badge/LangChain-1.4.0-orange)
+![LangSmith](https://img.shields.io/badge/LangSmith-0.8.5-yellow)
+![Groq](https://img.shields.io/badge/Groq-0.37.1-darkviolet)
+![OpenAI](https://img.shields.io/badge/OpenAI-2.37.0-lightblue)
+![Transformers](https://img.shields.io/badge/Transformers-5.7.0-red)
+![Torch](https://img.shields.io/badge/Torch-2.11.0-darkred)
+![Scikit‑Learn](https://img.shields.io/badge/Scikit--Learn-1.8.0-green)
+![Pandas](https://img.shields.io/badge/Pandas-3.0.2-blue)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-1.1.1-lightgrey)
+![LanceDB](https://img.shields.io/badge/LanceDB-0.30.0-brown)
+![Uvicorn](https://img.shields.io/badge/Uvicorn-0.47.0-black)
+![Starlette](https://img.shields.io/badge/Starlette-1.0.0-darkblue)
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-1.34.1-cyan)
+![License](https://img.shields.io/badge/License-CC_BY_NC-blue)
 
 ## Installation
 
